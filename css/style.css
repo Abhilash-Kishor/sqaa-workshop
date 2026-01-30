@@ -1,0 +1,1047 @@
+/* ========================================================= 
+   1. RESET
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   2. BASE / BODY
+========================================================= */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9fafb;
+  color: #1f2937;
+  line-height: 1.7;
+  padding-top: 0;
+}
+
+
+h1, h2, h3, h4 {
+     font-weight: 800; /* Arial Bold */
+  letter-spacing: -0.01em;
+}
+
+.content-card-title,
+.section-subtitle {
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   3. CONTAINER SYSTEM
+========================================================= */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+}
+
+/* =========================================================
+   4. HEADER
+========================================================= */
+.site-header {
+ font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================================================
+   5. BRAND
+========================================================= */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-logo {
+  height: 70px;
+}
+
+.brand-main {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0ea5b7;
+}
+
+.brand-sub {
+  font-size: 0.9rem;
+  color: #0ea5b7;
+}
+
+/* =========================================================
+   6. NAVIGATION
+========================================================= */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111827;
+  padding-bottom: 0.25rem;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  border-bottom: 2px solid #111827;
+}
+
+/* =========================================================
+   6A. HOME PAGE – HERO SECTION (CENTER DATE & VENUE)
+========================================================= */
+
+.home-hero {
+    font-family: Arial, Helvetica, sans-serif;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+justify-content: center;
+  text-align: center;
+}
+
+.home-hero-content {
+    font-family: Arial, Helvetica, sans-serif;
+  max-width: 72rem;
+  padding: 2rem 1.5rem;
+}
+
+/* Title */
+.home-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+/* Date */
+.home-date {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Venue */
+.home-venue {
+  font-size: 1.15rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* Description */
+.home-description {
+    font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.75;
+  max-width: 60rem;
+  margin: 0 auto;          /* ✅ keeps paragraph centered */
+}
+
+/* =========================================================
+   HERO ANIMATIONS
+========================================================= */
+
+.home-hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.8s ease forwards;
+}
+
+/* Stagger animation */
+.home-title {
+  animation-delay: 0.1s;
+}
+
+.home-date {
+  animation-delay: 0.25s;
+}
+
+.home-venue {
+  animation-delay: 0.35s;
+}
+
+.home-description {
+  animation-delay: 0.5s;
+}
+
+
+
+/* Keyframes */
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle pulse for counter */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================
+   COUNTDOWN – HORIZONTAL SINGLE BOX (FIXED)
+========================================================= */
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Main gradient box */
+.countdown-box {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  border-radius: 1.25rem;
+
+  /* 🔑 smaller size */
+  padding: 1.1rem 1.75rem;
+  min-width: 420px;
+
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.countdown-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Layout for circles — FORCE HORIZONTAL */
+.circle-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  flex-wrap: nowrap;   /* 🔥 IMPORTANT */
+}
+
+/* Individual circle */
+.time-circle {
+  position: relative;
+  width: 72px;   /* 🔑 smaller circles */
+  height: 72px;
+}
+
+/* SVG */
+.time-circle svg {
+  width: 90px;
+  height: 90px;
+  transform: rotate(-90deg);
+}
+
+/* Background ring */
+circle.bg {
+  fill: none;
+  stroke: rgba(202, 24, 24, 0.35);
+  stroke-width: 6;
+}
+
+/* Progress ring */
+circle.progress {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 6;
+  stroke-linecap: round;
+
+  /* circumference = 2π × 36 ≈ 226 */
+  stroke-dasharray: 226;
+  stroke-dashoffset: 226;
+
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+/* Center text */
+.time-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-value span {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.time-value small {
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   6B. HOME PAGE – WORKSHOP OBJECTIVES
+========================================================= */
+
+
+/* =========================================================
+   7. SECTIONS (NO EXTRA PADDING HERE)
+========================================================= */
+.section {
+  background: #ffffff;
+}
+
+.section-gray {
+  background: #f9fafb;
+}
+
+/* =========================================================
+   8. PAGE HEADER (ABOUT / WORKSHOP TITLES)
+========================================================= */
+.page-header {
+  margin-bottom: 1.5rem; /* 🔥 reduced */
+  text-align: center; 
+}
+
+.page-header .page-title {
+  margin-bottom: 0.4rem;
+}
+
+.page-header .page-subtitle {
+  margin-top: 0;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #003366;
+}
+
+.page-title-bar {
+  width: 64px;
+  height: 4px;
+  background: #003366;
+  margin: 0.5rem 0;
+}
+.page-title-bar {
+  display: none;
+}
+
+.page-subtitle {
+  font-size: 1.05rem;
+  color: #4b5563;
+}
+
+/* =========================================================
+   9. CONTENT CARDS
+========================================================= */
+.content-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.25rem; /* 🔥 tighter */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.content-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #003366;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.content-text {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+.section,
+.section-gray {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* WHAT TO EXPECT – force left alignment */
+/* =========================================================
+   6A. HOME PAGE – HERO SECTION (CENTER DATE & VENUE)
+========================================================= */
+
+.home-hero {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+justify-content: center;
+  text-align: center;
+}
+
+.home-hero-content {
+  max-width: 72rem;
+  padding: 2rem 1.5rem;
+}
+
+/* Title */
+.home-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+/* Date */
+.home-date {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Venue */
+.home-venue {
+  font-size: 1.15rem;
+  color: #374151;
+  margin-bottom: 2rem;
+}
+
+/* Description */
+.home-description {
+  font-size: 1.05rem;
+  color: #374151;
+  line-height: 1.75;
+  max-width: 60rem;
+  margin: 0 auto;          /* ✅ keeps paragraph centered */
+}
+
+/* =========================================================
+   HERO ANIMATIONS
+========================================================= */
+
+.home-hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.8s ease forwards;
+}
+
+/* Stagger animation */
+.home-title {
+  animation-delay: 0.1s;
+}
+
+.home-date {
+  animation-delay: 0.25s;
+}
+
+.home-venue {
+  animation-delay: 0.35s;
+}
+
+.home-description {
+  animation-delay: 0.5s;
+}
+
+
+
+/* Keyframes */
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle pulse for counter */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================
+   COUNTDOWN – HORIZONTAL SINGLE BOX (FIXED)
+========================================================= */
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Main gradient box */
+.countdown-box {
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  border-radius: 1.25rem;
+
+  /* 🔑 smaller size */
+  padding: 1.1rem 1.75rem;
+  min-width: 420px;
+
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.15);
+}
+
+/* Title */
+.countdown-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Layout for circles — FORCE HORIZONTAL */
+.circle-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  flex-wrap: nowrap;   /* 🔥 IMPORTANT */
+}
+
+/* Individual circle */
+.time-circle {
+  position: relative;
+  width: 90px;   /* 🔑 smaller circles */
+  height: 90px;
+}
+
+/* SVG */
+.time-circle svg {
+  width: 90px;
+  height: 90px;
+  transform: rotate(-90deg);
+}
+
+/* Background ring */
+circle.bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 6;
+}
+
+/* Progress ring */
+circle.progress {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 6;
+  stroke-linecap: round;
+
+  /* circumference = 2π × 36 ≈ 226 */
+  stroke-dasharray: 226;
+  stroke-dashoffset: 226;
+
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+/* Center text */
+.time-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-value span {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.time-value small {
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   6B. HOME PAGE – WORKSHOP OBJECTIVES
+========================================================= */
+
+
+/* =========================================================
+   7. SECTIONS (NO EXTRA PADDING HERE)
+========================================================= */
+.section {
+  background: #ffffff;
+}
+
+.section-gray {
+  background: #f9fafb;
+}
+
+/* =========================================================
+   8. PAGE HEADER (ABOUT / WORKSHOP TITLES)
+========================================================= */
+.page-header {
+  margin-bottom: 1.5rem; /* 🔥 reduced */
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+}
+
+.page-title-bar {
+  width: 64px;
+  height: 4px;
+  background: #1e3a8a;
+  margin: 0.5rem 0;
+}
+.page-title-bar {
+  display: none;
+}
+
+.page-subtitle {
+  font-size: 1.05rem;
+  color: #4b5563;
+}
+
+/* =========================================================
+   9. CONTENT CARDS
+========================================================= */
+.content-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 1.25rem; /* 🔥 tighter */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.content-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.content-text {
+  font-size: 1.05rem;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+/* WHAT TO EXPECT – force left alignment */
+.expect-list {
+  text-align: left;
+  padding-left: 1.25rem; /* normal bullet indent */
+}
+
+.expect-list li {
+  margin-bottom: 0.9rem;
+  line-height: 1.7;
+}
+
+
+
+/* =========================================================
+   10. SECTION SUB-TITLES
+========================================================= */
+.section-subtitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 1.25rem;
+}
+
+
+
+/* =========================================================
+   10. SECTION SUB-TITLES
+========================================================= */
+.section-subtitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 1.25rem;
+}
+
+/* =========================================================
+   11. INFOGRAPHIC – KEY FOCUS AREAS
+========================================================= */
+
+
+/* Grid only – NO background, NO padding */
+.focus-infographic {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .focus-infographic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Individual focus cards */
+.focus-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+.focus-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Text */
+.focus-card p {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* Icon circle */
+.focus-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+/* Colors */
+.focus-blue .focus-icon {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+
+.focus-green .focus-icon {
+  background: linear-gradient(135deg, #059669, #065f46);
+}
+
+.focus-orange .focus-icon {
+  background: linear-gradient(135deg, #f97316, #c2410c);
+}
+
+.focus-purple .focus-icon {
+  background: linear-gradient(135deg, #7c3aed, #4c1d95);
+}
+
+/* =========================================================
+ 12.  AGENDA PAGE – LAYOUT & CARDS
+========================================================= */
+
+/* Day header (blue strip) */
+.agenda-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #1e3a8a;
+  color: #ffffff;
+
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  margin: -2rem -2rem 0; /* pull to card edges */
+}
+
+.agenda-day-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.agenda-day-header p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.agenda-location {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   AGENDA LIST
+========================================================= */
+
+.agenda-list {
+  margin-top: 1.25rem;
+}
+
+/* Single agenda row */
+.agenda-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.25rem;
+
+  padding: 1.1rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.agenda-item:last-child {
+  border-bottom: none;
+}
+
+/* Time column */
+.agenda-time {
+  font-weight: 600;
+  color: #1e3a8a;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.agenda-time::before {
+  content: "🕒";
+  font-size: 0.9rem;
+}
+
+/* Title + description */
+.agenda-item strong {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.agenda-item p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================================
+   AGENDA CARD ADJUSTMENTS
+========================================================= */
+
+/* Slightly tighter than normal cards */
+.section-gray .content-card {
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+/* Space between Day 1 and Day 2 blocks */
+.section-gray + .section-gray {
+  padding-top: 0;
+}
+
+/* =========================================================
+   RESPONSIVE (MOBILE)
+========================================================= */
+
+@media (max-width: 640px) {
+  .agenda-item {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-time {
+    margin-bottom: 0.25rem;
+  }
+
+  .agenda-day-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* =========================================================
+   VENUE MAP
+========================================================= */
+
+.map-actions {
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+.directions-btn {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+}
+
+.directions-btn:hover {
+  text-decoration: underline;
+}
+
+/* =====================13. GALLERY ===================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.gallery-item {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.gallery-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+/* ===================== LIGHTBOX ===================== */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   14. FOOTER (FIXED – SAME FOR ALL PAGES)
+========================================================= */
+.site-footer {
+  background: #545358;
+  color: #ffffff;
+  margin-top: 2rem;
+}
+
+/* Footer width constrained */
+.footer-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* LEFT + RIGHT layout */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* Left block */
+.footer-section {
+  font-size: 0.95rem;
+}
+
+/* Right block aligned right */
+.footer-section:last-child {
+  text-align: right;
+}
+
+/* Headings */
+.footer-section h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+.footer-section ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.footer-section li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+/* Divider + copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* =========================================================
+   15. ANIMATIONS (OPTIONAL)
+========================================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

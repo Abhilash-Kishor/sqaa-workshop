@@ -1,0 +1,121 @@
+<style>
+    .site-header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e2e8f0;
+ 
+      /* 🔥 ONLY CHANGE MADE — freezes your header */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+ 
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ 
+.brand-logo {
+  height: 70px;
+}
+ 
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+ 
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-main);
+  position: relative;
+}
+ 
+.nav-links a::after {
+  content:'';
+  position:absolute;
+  width:0;
+  height:2px;
+  bottom:-4px;
+  left:0;
+  background:var(--primary);
+  transition:.3s;
+}
+ 
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width:100%;
+}
+ 
+/* Agenda dropdown */
+.agenda-dropdown { position: relative; cursor: pointer; }
+ 
+.agenda-menu {
+  display: none;
+  position: absolute;
+  top: 130%;
+  right: 0;
+  background: white;
+  min-width: 220px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid #e2e8f0;
+}
+.agenda-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid #f1f5f9;
+}
+.agenda-menu a:last-child {
+  border-bottom: none;
+}
+.agenda-menu a:hover {
+  background: #f8fafc;
+}
+ 
+.agenda-link.active::after {
+  width: 100%;
+}
+ 
+.nav-links a.active::after {
+  width: 100%;
+}
+</style>
+ 
+<script src="js/include.js" defer></script>
+<!-- Google Fonts: Inter for professional look -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+ 
+ 
+<header class="site-header">
+  <div class="header-container">
+    <img src="images/cbse-logo-with-name.png" class="brand-logo" alt="CBSE Logo">
+ 
+    <nav class="nav-links">
+      <a href="index.html" >Home</a>
+      <a href="about-sqaa.html">About SQAA+</a>
+      <a href="gallery.html">Gallery</a>
+ 
+      <div class="agenda-dropdown">
+        <a class="agenda-link" onclick="toggleAgenda(event)">Resources <span style="font-size:0.8em;">▼</span></a>
+        <div class="agenda-menu" id="agendaMenu"></div>
+      </div>
+ 
+      
+    </nav>
+  </div>
+</header>
+ 
+<!-- 🔥 Add this spacer so content doesn't hide beneath fixed header -->
+<div style="height:80px;"></div>
+``

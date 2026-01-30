@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CBSE SQAA+ National Workshop 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Fonts: Inter for professional look -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<!-- Header/Footer Include Script -->
+<script src="js/include.js" defer></script>
+ <link rel="stylesheet" href="css/style.css">
+<style>
+:root {
+  --primary: #003366;
+  --primary-light: #00509e;
+  --secondary: #00adbe;
+  --accent: #f59e0b; /* Sophisticated Gold */
+  --bg-light: #f8fafc;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --white: #ffffff;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.15);
+}
+
+* { box-sizing: border-box; transition: all 0.3s ease; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+
+/* ================= EVENT BANNER ================= */
+.event-banner{
+  position:relative;
+  background: linear-gradient(120deg, #003366, #00adbe, #6ebddb);
+  color:#fff;
+  padding:30px 0;
+}
+.event-banner-content{
+  max-width:1200px;
+  margin:auto;
+  padding:0 30px;
+  display:flex;
+  align-items:center;
+  gap:30px;
+}
+.banner-image-box{
+  width:260px;
+  min-width:260px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+}
+.banner-image-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.banner-text{
+  flex:1;
+}
+.banner-text h1{
+  font-size:46px;
+  font-weight:800;
+  line-height:1.2;
+  margin-bottom:14px;
+}
+.banner-text p{
+  font-size:18px;
+  opacity:0.95;
+}
+.banner-timer{
+  background:rgba(255,255,255,0.18);
+  border-radius:18px;
+  padding:20px 22px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+.countdown-title{
+  text-align:center;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.circle-timer{
+  display:flex;
+  gap:14px;
+}
+.time-circle{
+  position:relative;
+  width:90px;
+  height:90px;
+}
+svg{
+  width:100%;
+  height:100%;
+  transform:rotate(-90deg);
+}
+circle{
+  fill:none;
+  stroke-width:8;
+}
+circle.bg{
+  stroke:#fcfcfa;
+}
+circle.progress{
+  stroke:#ffd166;
+  stroke-dasharray:283;
+}
+.time-value{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+.time-value span{font-size:20px;}
+.time-value small{font-size:10px;}
+
+/* ================= SECTION STYLING ================= */
+.section { padding: 100px 20px; }
+.container { max-width: 1100px; margin: auto; }
+
+.page-header { text-align: center; margin-bottom: 60px; }
+.page-title { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+.page-title-bar { 
+    width: 60px; height: 4px; background: var(--secondary); 
+    margin: 15px auto; border-radius: 2px;
+}
+
+/* CARDS */
+.content-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+  border: 1px solid #f1f5f9;
+}
+.content-card-title {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* OBJECTIVE GRID */
+.objective-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+.objective-card {
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+.objective-card:hover {
+  background: var(--white);
+  border-color: var(--secondary);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+.objective-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* EXPECT LIST */
+.expect-list { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.expect-list li {
+  padding: 20px;
+  background: #fff;
+  border-left: 4px solid var(--secondary);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* ================= MAP & FOOTER ================= */
+.venue-map-card { text-align: center; background: #001f3f; color: white; }
+.directions-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary);
+  padding: 16px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 25px;
+}
+.directions-btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3); }
+
+.btn-agenda{
+  color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 7px;
+    background: #004976;
+}
+@media(max-width:1024px){
+  .event-banner-content { flex-direction: column; text-align: center; }
+  .expect-list { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- <header class="site-header">
+  <div class="header-container">
+    <img src="images/cbse-logo-with-name.png" class="brand-logo" alt="CBSE Logo">
+
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about-sqaa.html">About SQAA+</a>
+
+      <div class="agenda-dropdown" onclick="toggleAgenda(event)">
+        <a>Agenda <span style="font-size: 0.8em; margin-left: 4px;">▼</span></a>
+        <div class="agenda-menu" id="agendaMenu"></div>
+      </div>
+
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </div>
+</header> -->
+<div id="header-placeholder"></div>
+
+<section class="event-banner">
+  <div class="event-banner-content">
+    <!-- LEFT IMAGE -->
+    <div class="banner-image-box">
+      <img src="images/cbse_building.jpg" alt="CBSE Dwarka Campus">
+    </div>
+
+    <!-- CENTER TEXT -->
+    <div class="banner-text">
+      <p style="font-size:38px; font-weight: 900;">CBSE SQAA+ <br>National Workshop<p>
+      <p style="padding:10px 0">02<sup style="font-size:small;">nd</sup> and 03<sup style="font-size:small;">rd</sup> February 2026<br>CBSE Integrated Complex, New Delhi</p>
+    <a href="agenda_files/Workshop Agenda.pdf" target="_blank" class="btn-agenda">Click Here for Workshop Agenda</a>
+    </div>
+
+    <!-- RIGHT TIMER -->
+    <div class="banner-timer">
+    <div class="countdown-title">WORKSHOP STARTS IN</div>
+      <div class="circle-timer">
+        <div class="time-circle">
+          <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"></circle><circle id="daysCircle" class="progress" cx="50" cy="50" r="45"></circle></svg>
+          <div class="time-value"><span id="days">0</span><small>DAYS</small></div>
+        </div>
+        <div class="time-circle">
+          <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"></circle><circle id="hoursCircle" class="progress" cx="50" cy="50" r="45"></circle></svg>
+          <div class="time-value"><span id="hours">0</span><small>HRS</small></div>
+        </div>
+        <div class="time-circle">
+          <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"></circle><circle id="minutesCircle" class="progress" cx="50" cy="50" r="45"></circle></svg>
+          <div class="time-value"><span id="minutes">0</span><small>MIN</small></div>
+        </div>
+        <div class="time-circle">
+          <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"></circle><circle id="secondsCircle" class="progress" cx="50" cy="50" r="45"></circle></svg>
+          <div class="time-value"><span id="seconds">0</span><small>SEC</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="page-header">
+      <h2 class="page-title" >About Workshop </h2>
+
+      <p class="page-subtitle">
+        Launch of the SQAA+ Program
+      </p>
+      <br>
+      <br>
+      <!--<div class="page-title-bar"></div>-->
+      <!-- <h2>Workshop Overview</h2> -->
+       <!-- <p style="max-width: 700px; margin: auto; color: var(--text-muted);">
+         The CBSE SQAA+ National Workshop 2026 serves as the official launch
+        platform for the SQAA+ Pilot Programme. This comprehensive two-day
+        event brings together educational leaders, experienced mentors,
+        and school administrators from across the country to collaborate,
+        learn, and shape the future of school quality assurance in India.
+      </p> --> 
+        <!-- <p class="content-text">
+        Scheduled for February 2nd & 3rd, 2026, the workshop features expert-led
+        sessions, interactive activities, group discussions, and networking
+        opportunities designed to build capacity and foster strong
+        partnerships for successful SQAA+ implementation.
+      </p> -->
+
+    <!--</div>-->
+
+    <div class="content-card">
+      <p>The CBSE SQAA+ National Workshop 2026 serves as the official launch platform for the SQAA+ Pilot Program. This event brings together educational leaders, mentors, and administrators to shape the future of school quality assurance in India.
+        This National Workshop aims to collectively set standards for school improvement in a rapidly changing educational landscape.
+        Recognition of this two-day workshop as an important milestone, offering space to engage with the ideas of school quality through practical scenarios and professional experience, with an emphasis on collective learning.
+      </p>
+    </div>
+     
+    
+    <h2 class="page-title" style="text-align: center; margin-bottom: 40px; font-size: 2rem;">Workshop objectives</h2>
+    <div class="objective-grid" style="margin-bottom: -100px;">
+            <div class="objective-card">
+        <span class="objective-icon">💡</span>
+         <p>
+        Reflection on insights from SQAAF implementation 
+      </p>
+      </div>
+      <div class="objective-card">
+        <span class="objective-icon">👥</span>
+         <p>
+        Establishing mentor and school roles, responsibilities, and
+        partnership dynamics
+      </p>
+      </div>
+      <div class="objective-card">
+        <span class="objective-icon">📝</span>
+        <p>
+        Collecting inputs for SQAA+ development based on
+        field experiences and ground reality
+      </div>
+      <div class="objective-card">
+        <span class="objective-icon">📘</span>
+       <p>
+        Developing a shared understanding of the SQAA+ framework and its
+        implementation
+      </p>
+      </div>
+    </div>
+     <!-- WHAT TO EXPECT -->
+    <!-- <div class="content-card" style="margin-top: 50px;">
+
+      <h3 class="content-card-title">What to Expect</h3>
+
+      <ul class="expect-list">
+        <li>
+          <strong>Interactive Learning:</strong>
+          Engage in hands-on activities, group discussions, and collaborative
+          exercises designed to deepen understanding.
+        </li>
+
+        <li>
+          <strong>Expert Insights:</strong>
+          Learn from experienced educational leaders and quality assurance
+          specialists.
+        </li>
+
+        <li>
+          <strong>Networking Opportunities:</strong>
+          Connect with peers, mentors, and school leaders from across the
+          country.
+        </li>
+
+        <li>
+          <strong>Practical Tools:</strong>
+          Receive resources, frameworks, and guidelines for implementing
+          SQAA+ in your institution.
+        </li>
+      </ul>
+
+    </div> -->
+  </div>
+</section>
+
+
+<section class="eventsection" style="background: #eff6ff;">
+  <div class="container">
+    <div class="content-card venue-map-card" style="margin-top: 30px;">
+      <h2 style="color: #fff; margin-bottom: 10px;">Event Venue</h2>
+      <p style="opacity: 0.8; margin-bottom: 30px;">Sector 23, Dwarka, New Delhi - 110077</p>
+      
+      <iframe
+        src="https://www.google.com/maps?q=Central+Board+of+Secondary+Education,+Dwarka,+New+Delhi&output=embed"
+        width="100%" height="450" style="border:0; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Central+Board+of+Secondary+Education,+Dwarka,+New+Delhi" target="_blank" class="directions-btn">
+        Get Directions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STYLED FOOTER ===================== -->
+<!-- <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-sqaa.html">About SQAA+</a></li>
+          <li><a href="about-workshop.html">About Workshop</a></li>
+          <li><a href="agenda.html">Agenda</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p>
+          Central Board of Secondary Education<br>
+          4, Sector 23, Dwarka,<br>
+          New Delhi – 110077
+        </p>
+        <p class="footer-contact">
+          📞 9289045829<br>
+          ✉️ jsal-cbse@cbseshiksha.in
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Central Board of Secondary Education. All rights reserved.<br>
+      SQAA+ Pilot Programme
+    </div>
+  </div>
+</footer> -->
+
+<div id="footer-placeholder"></div>
+<script>
+/* Countdown Logic */
+const eventDate = new Date("February 2, 2026 10:00:00").getTime();
+const circumference = 2 * Math.PI * 45;
+
+function updateCountdown(){
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+  if(diff < 0) return;
+
+  const d = Math.floor(diff/(1000*60*60*24));
+  const h = Math.floor((diff/(1000*60*60))%24);
+  const m = Math.floor((diff/(1000*60))%60);
+  const s = Math.floor((diff/1000)%60);
+
+  document.getElementById('days').textContent = d;
+  document.getElementById('hours').textContent = h;
+  document.getElementById('minutes').textContent = m;
+  document.getElementById('seconds').textContent = s;
+
+  setCircle('daysCircle', d, 365);
+  setCircle('hoursCircle', h, 24);
+  setCircle('minutesCircle', m, 60);
+  setCircle('secondsCircle', s, 60);
+}
+
+function setCircle(id, val, max){
+  const el = document.getElementById(id);
+  el.style.strokeDashoffset = circumference - (val/max)*circumference;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+
+</script>
+
+</body>
+</html>

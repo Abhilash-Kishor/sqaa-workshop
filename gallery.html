@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery | CBSE SQAA+</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts: Inter for professional look -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Header/Footer Include Script -->
+  <script src="js/include.js" defer></script>
+</head>
+
+<body>
+
+<!-- ================= HEADER (SAME AS HOME) ================= -->
+<div id="header-placeholder"></div>
+
+<!-- ================= GALLERY HEADER ================= -->
+<section class="page-header">
+  <div class="container">
+
+      <h1 class="page-title" style="color: #003366;">Workshop Gallery</h1>
+      <div class="page-title-bar"></div>
+      <p class="page-subtitle">
+        Moments from CBSE SQAA+ National Workshops
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= GALLERY SECTION ================= -->
+<section class="section-gray">
+  <div class="container">
+
+    <div class="content-card">
+
+      <h3 class="content-card-title" style="color: #003366;">Photo Gallery</h3>
+
+      <div class="gallery-grid">
+
+        <!-- IMAGE ITEM -->
+        
+
+        <div class="gallery-item">
+          <img src="images/flex.jpg" alt="Flex" class="gallery-img">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/Conference room.jpg" alt="Conference" class="gallery-img">
+        </div>
+        
+        <div class="gallery-item">
+         <img src="images/cbse_building.jpg" alt="CBSE" class="gallery-img">
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/auditorium.jpg" alt="Auditorium" class="gallery-img">
+        </div>
+
+        <!-- Add more images here later -->
+
+      </div>
+
+      <p class="gallery-note">
+        📸 More photos will be added after workshop session.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER (SAME AS HOME) ================= -->
+<div id="footer-placeholder"></div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+</div>
+<script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".gallery-img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+
+
+</body>
+</html>
