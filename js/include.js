@@ -10,10 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHTML("footer-placeholder", "footer.html");
 });
 
-
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("open");
+}
 
 /* Agenda Logic */
-const agendaFiles = ["Case study.pdf", "Workshop Agenda.pdf"];
+const agendaFiles = ["Workshop Agenda.pdf", "SQAAF.pdf"];
 
 function toggleAgenda(e) {
   e.stopPropagation();

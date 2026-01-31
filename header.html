@@ -1,44 +1,47 @@
 <style>
-    .site-header {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e2e8f0;
- 
-      /* 🔥 ONLY CHANGE MADE — freezes your header */
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 1000;
-    }
- 
+.site-header {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e2e8f0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Container */
 .header-container {
   max-width: 1200px;
   margin: auto;
-  padding: 12px 24px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
- 
+
+/* Logo */
 .brand-logo {
   height: 70px;
+  max-width: 100%;
 }
- 
+
+/* Nav */
 .nav-links {
   display: flex;
   gap: 2.5rem;
   align-items: center;
 }
- 
+
 .nav-links a {
   text-decoration: none;
   font-weight: 600;
   color: var(--text-main);
   position: relative;
 }
- 
+
+/* underline animation */
 .nav-links a::after {
   content:'';
   position:absolute;
@@ -49,15 +52,13 @@
   background:var(--primary);
   transition:.3s;
 }
- 
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width:100%;
 }
- 
-/* Agenda dropdown */
-.agenda-dropdown { position: relative; cursor: pointer; }
- 
+
+/* Dropdown */
+.agenda-dropdown { position: relative; }
 .agenda-menu {
   display: none;
   position: absolute;
@@ -69,28 +70,57 @@
   box-shadow: var(--shadow);
   border: 1px solid #e2e8f0;
 }
-.agenda-menu a {
-  display: block;
-  padding: 10px 16px;
-  color: var(--text-main);
-  text-decoration: none;
-  border-bottom: 1px solid #f1f5f9;
+.agenda-menu a{
+width: 100%;
+    display: block;
+    padding: 10px;
 }
-.agenda-menu a:last-child {
-  border-bottom: none;
+
+/* 🔥 HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
-.agenda-menu a:hover {
-  background: #f8fafc;
-}
- 
-.agenda-link.active::after {
-  width: 100%;
-}
- 
-.nav-links a.active::after {
-  width: 100%;
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .brand-logo {
+    height: 48px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 20px;
+    display: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .agenda-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+  }
 }
 </style>
+
  
 <script src="js/include.js" defer></script>
 <!-- Google Fonts: Inter for professional look -->
@@ -99,23 +129,28 @@
  
 <header class="site-header">
   <div class="header-container">
-    <img src="images/cbse-logo-with-name.png" class="brand-logo" alt="CBSE Logo">
- 
-    <nav class="nav-links">
-      <a href="index.html" >Home</a>
+
+    <img src="images/cbse-logo-with-name.png"
+         class="brand-logo"
+         alt="CBSE Logo">
+
+    <!-- Hamburger -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav-links" id="navMenu">
+      <a href="index.html">Home</a>
       <a href="about-sqaa.html">About SQAA+</a>
       <a href="gallery.html">Gallery</a>
- 
+
       <div class="agenda-dropdown">
-        <a class="agenda-link" onclick="toggleAgenda(event)">Resources <span style="font-size:0.8em;">▼</span></a>
-        <div class="agenda-menu" id="agendaMenu"></div>
+        <a class="agenda-link" onclick="toggleAgenda(event)">
+          Resources ▼
+        </a>
+        <div class="agenda-menu" id="agendaMenu" ></div>
       </div>
- 
-      
     </nav>
+
   </div>
 </header>
- 
-<!-- 🔥 Add this spacer so content doesn't hide beneath fixed header -->
-<div style="height:80px;"></div>
-``
+
+<div style="height:60px;"></div>
