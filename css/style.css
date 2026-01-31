@@ -899,24 +899,23 @@ circle.progress {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr); 
   gap: 1.25rem;
   margin-top: 1.25rem;
 }
 
 .gallery-item {
+  height: 100%;
   border-radius: 0.75rem;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 10px 22px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.gallery-item img {
+.gallery-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 .gallery-item:hover {
@@ -930,6 +929,11 @@ circle.progress {
   color: #475569;
 }
 
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr; 
+  }
+}
 /* ===================== LIGHTBOX ===================== */
 
 .lightbox {
