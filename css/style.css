@@ -1049,3 +1049,104 @@ circle.progress {
   }
 }
 
+
+
+/* ================= RESOURCES PAGE ================= */
+
+.resources-section {
+  padding: 50px 0;
+  background: #f9fbfd;
+}
+
+.resource-folder {
+  background: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.folder-row {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease;
+}
+
+.folder-row:hover {
+  background: #f0f6ff;
+}
+
+.folder-icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.folder-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #003366;
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.file-list li {
+  padding: 12px 20px 12px 52px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.file-list li:last-child {
+  border-bottom: none;
+}
+
+.file-list a {
+  text-decoration: none;
+  color: #0056b3;
+  font-weight: 500;
+}
+
+.file-list a:hover {
+  text-decoration: underline;
+}
+
+/* Open folder state */
+.resource-folder.open .file-list {
+  display: block;
+}
+
+/* File row layout */
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-name {
+  flex: 1;
+  text-decoration: none;
+  color: #0056b3;
+  font-weight: 500;
+}
+
+.file-name:hover {
+  text-decoration: underline;
+}
+
+/* Download button */
+.download-btn {
+  margin-left: 15px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #003366;
+}
+
+.download-btn:hover {
+  color: #0056b3;
+}
